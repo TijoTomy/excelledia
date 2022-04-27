@@ -7,22 +7,33 @@
             {{ strService?.hotelData[0]?.branch_name }}
           </p>
         </div>
-        <div class="col-5 d-flex justify-content-around">
-          <p style="font-weight: bold">my orders</p>
-          <mat-icon matBadge="15" matBadgeColor="warn">shopping_cart</mat-icon>
-          <span
-            style="
-              width: 20px;
-              height: 20px;
-              background-color: rgb(223, 151, 19);
-              position: relative;
-              right: 30px;
-              color: white;
-              text-align: center;
-            "
-          >
-            {{ strService.cartItemCount }}
-          </span>
+        <div class="col-5">
+          <div class="row">
+            <div class="col-12">
+              <div class="row">
+                <div class="col-7">
+                  <p style="font-weight: bold">my orders</p>
+                </div>
+                <div class="col-5">
+                  <mat-icon matBadgeColor="warn">shopping_cart</mat-icon>
+                  <span
+                    style="
+                      width: 15px;
+                      height: 15px;
+                      background-color: rgb(223, 151, 19);
+                      position: relative;
+                      bottom: 10px;
+                      color: white;
+                      text-align: center;
+                      display: inline;
+                    "
+                  >
+                    {{ strService.cartItemCount }}
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
