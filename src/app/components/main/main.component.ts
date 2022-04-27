@@ -7,6 +7,7 @@ import { StoreService } from '../../adapter/store.service';
   styleUrls: ['./main.component.scss'],
 })
 export class MainComponent implements OnInit {
+  incrementItem: any = [];
   constructor(public strService: StoreService) {}
 
   ngOnInit(): void {}
@@ -17,10 +18,23 @@ export class MainComponent implements OnInit {
       return false;
     }
   }
-  addItem() {
+  addItem(data: any, i: number) {
     this.strService.cartItemCount = this.strService.cartItemCount + 1;
+    if (this.incrementItem.length == 0) {
+      data.forEach((element: any) => {
+        this.incrementItem.push(0);
+      });
+      this.incrementItem[i] = this.incrementItem[i] + 1;
+    } else {
+      this.incrementItem[i] = this.incrementItem[i] + 1;
+    }
   }
-  removeItem() {
-    this.strService.cartItemCount = this.strService.cartItemCount - 1;
+  removeItem(i: number) {
+    if (this.strService.cartItemCount != 0) {
+      this.strService.cartItemCount = this.strService.cartItemCount - 1;
+    }
+    if (this.incrementItem.length > 0) {
+      this.incrementItem[i] = this.incrementItem[i] - 1;
+    }
   }
 }

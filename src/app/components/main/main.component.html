@@ -8,7 +8,7 @@
         >
           <ng-template matTabContent>
             <div
-              *ngFor="let item of items.category_dishes"
+              *ngFor="let item of items.category_dishes; let i = index"
               class="border mt-2 p-2"
             >
               <div class="row">
@@ -24,7 +24,7 @@
                     {{ item.dish_currency }}:{{ item.dish_price }}
                   </p>
                 </div>
-                <div class="col-4 d-flex justify-content-end">
+                <div class="col-6 d-flex justify-content-center">
                   <p
                     class="text-bold"
                     style="word-wrap: break-word; width: 40%"
@@ -32,7 +32,7 @@
                     {{ item.dish_calories + "" + "calories" }}
                   </p>
                 </div>
-                <div class="col-5 d-flex justify-content-center">
+                <div class="col-3 d-flex justify-content-center">
                   <img
                     [src]="item.dish_image"
                     alt="img not loaded"
@@ -59,15 +59,17 @@
                       <button
                         type="button"
                         class="btn btn-success"
-                        (click)="removeItem()"
+                        (click)="removeItem(i)"
                       >
                         <i class="fa fa-minus" aria-hidden="true"></i>
                       </button>
-                      <button type="button" class="btn btn-success">0</button>
+                      <button type="button" class="btn btn-success">
+                        {{ incrementItem[i] ? incrementItem[i] : 0 }}
+                      </button>
                       <button
                         type="button"
                         class="btn btn-success"
-                        (click)="addItem()"
+                        (click)="addItem(items.category_dishes, i)"
                       >
                         <i class="fa fa-plus"></i>
                       </button>
